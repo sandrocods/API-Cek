@@ -51,7 +51,7 @@ Project ini dibuat untuk tujuan pengembangan dan pembelajaran
     # contoh output jika gagal
      {
          'status': False, 
-         'customer_number': '32030522701'
+         'customer_number': 'xxxxxx'
      }
     
 
