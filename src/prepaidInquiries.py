@@ -4,7 +4,7 @@ from src.ScraperAPI import ScraperAPI
 from requests_toolbelt.utils import dump
 
 
-class PrepaidInquiries:
+class prepaidInquiries:
 
     def __init__(self, customer_number):
         self.customer_number = customer_number
