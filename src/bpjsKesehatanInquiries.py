@@ -4,7 +4,7 @@ from src.ScraperAPI import ScraperAPI
 from datetime import datetime
 
 
-class bpjsKesehatanInquires:
+class bpjsKesehatanInquiries:
 
     def __init__(self, customer_number):
 
