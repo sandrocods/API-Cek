@@ -11,7 +11,7 @@ class ScraperAPI:
     def __init__(self):
         self.access_token = None
 
-    def _get_access_token(self, url) -> str | None:
+    def _get_access_token(self, url):
         try:
             ua = UserAgent(
                 browsers=['firefox', 'chrome', 'edge']
