@@ -20,7 +20,8 @@ app.register_blueprint(postpaidInquiriess)
 app.register_blueprint(bpjsKesehatanInquiriess)
 
 
-@app.route('/')
+@app.route('/', methods=['GET'])
+@app.route('/api', methods=['GET'])
 def index():
     return {
         "status": True,
