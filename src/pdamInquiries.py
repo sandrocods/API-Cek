@@ -1,12 +1,12 @@
 import json
 import requests
 from src.ScraperAPI import ScraperAPI
-from requests_toolbelt.utils import dump
 
 
-class pdamInquiries:
+class pdamInquiries(ScraperAPI):
 
     def __init__(self, customer_number):
+        super().__init__()
         self.customer_number = customer_number
         if self.customer_number is None:
             raise Exception("Customer number cannot be empty")
@@ -85,7 +85,6 @@ class pdamInquiries:
             return {
                 "status": False,
                 "customer_number": self.customer_number,
-
                 "message": response.json()['errors'][0]['message'],
             }
 

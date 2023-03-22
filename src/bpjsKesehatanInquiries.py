@@ -4,10 +4,10 @@ from src.ScraperAPI import ScraperAPI
 from datetime import datetime
 
 
-class bpjsKesehatanInquiries:
+class bpjsKesehatanInquiries(ScraperAPI):
 
     def __init__(self, customer_number):
-
+        super().__init__()
         self.customer_number = customer_number
         if len(self.customer_number) < 16:
             raise Exception("Customer number must be 16 digits")
