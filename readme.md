@@ -10,6 +10,20 @@ tertentu
 
 Project ini dibuat untuk tujuan pengembangan dan pembelajaran
 
+## 📚 Daftar Isi
+
+- [Library](#library)
+- [Fitur](#fitur)
+- [Cara Penggunaan](#cara-penggunaan)
+- [Refrensi](#refrensi)
+    - [Prepaid Inquiries](#prepaid-inquiries)
+    - [Postpaid Inquiries](#postpaid-inquiries)
+    - [PDAM Inquiries](#pdam-inquiries)
+    - [BPJS Kesehatan Inquiries](#bpjs-kesehatan-inquiries)
+
+- [Rest API](#rest-api)
+- [Deployment](#deployment)
+
 ## Library
 
 - [Requests](https://pypi.org/project/requests/)
@@ -25,8 +39,13 @@ Project ini dibuat untuk tujuan pengembangan dan pembelajaran
 | postpaidInquiries ( Tagihan Listrik )   | ✅      |
 | pdamInquiries ( Tagihan PDAM )          | ✅      |
 | bpjsKesehatanInquiries ( Tagihan BPJS ) | ✅      |
+| Rest API                                | ✅      |
+| Web App                                 | WIP    |
 
 ## Cara Penggunaan
+
+library ini dapat digunakan secara langsung dengan mengimport file sesuai dengan fitur yang diinginkan
+yang terdapat pada folder [src](https://github.com/sandrocods/API-Cek/tree/master/src)
 
 ```python
 # Import library untuk mengecek tagihan listrik prabayar
@@ -57,11 +76,13 @@ print(
 # }
 ```
 
-## Refrensi 
+## Refrensi
+
+Berikut adalah contoh output dan parameter dari beberapa method yang terdapat pada library ini
 
 ### Prepaid Inquiries
 
-Prepaid Inquiries adalah sebuah function yang digunakan untuk mengecek tagihan listrik prabayar
+Prepaid Inquiries adalah sebuah class yang digunakan untuk mengecek tagihan listrik prabayar
 
 | Parameter       | Tipe Data | Keterangan      |
 |-----------------|-----------|-----------------|
@@ -90,7 +111,7 @@ Contoh output jika gagal
 
 ### Postpaid Inquiries
 
-Postpaid Inquiries adalah sebuah function yang digunakan untuk mengecek tagihan listrik pascabayar
+Postpaid Inquiries adalah sebuah class yang digunakan untuk mengecek tagihan listrik pascabayar
 
 | Parameter       | Tipe Data | Keterangan      |
 |-----------------|-----------|-----------------|
@@ -125,7 +146,7 @@ Contoh output jika gagal
 
 ### PDAM Inquiries
 
-PDAM Inquiries adalah sebuah function yang digunakan untuk mengecek tagihan PDAM
+PDAM Inquiries adalah sebuah class yang digunakan untuk mengecek tagihan PDAM
 
 | Parameter       | Tipe Data | Keterangan      |
 |-----------------|-----------|-----------------|
@@ -197,7 +218,7 @@ print(
 
 ### BPJS Kesehatan Inquiries
 
-BPJS Kesehatan Inquiries adalah sebuah function yang digunakan untuk mengecek tagihan BPJS Kesehatan
+BPJS Kesehatan Inquiries adalah sebuah class yang digunakan untuk mengecek tagihan BPJS Kesehatan
 
 | Parameter       | Tipe Data | Keterangan      |
 |-----------------|-----------|-----------------|
@@ -225,4 +246,95 @@ Contoh output jika gagal
 }
 ```
 
+## Rest api
+
+Berikut adalah refrensi rest api yang tersedia
+
+```http
+BASE_URL = http://47.88.53.4:1111/api/
+```
+
+### [Prepaid Inquiries](http://47.88.53.4:1111/api/prepaidInquiries/xxxxxxxxxxx)
+
+```http
+GET /prepaidInquiries/{customer_number}
+```
+
+| Parameter       | Tipe Data | Keterangan      |
+|-----------------|-----------|-----------------|
+| customer_number | String    | Nomor pelanggan |
+
+### [Postpaid Inquiries](http://47.88.53.4:1111/api/postpaidInquiries/xxxxxxxxxxx)
+
+```http
+GET /postpaidInquiries/{customer_number}
+```
+
+| Parameter       | Tipe Data | Keterangan      |
+|-----------------|-----------|-----------------|
+| customer_number | String    | Nomor pelanggan |
+
+### [Pdam Inquiries](http://47.88.53.4:1111/api/pdamInquiries/xxxxxxxxxxx)
+
+```http
+GET /pdamInquiries/{customer_number}/{operator_id}
+```
+
+| Parameter       | Tipe Data | Keterangan      |
+|-----------------|-----------|-----------------|
+| customer_number | String    | Nomor pelanggan |
+| operator_id     | String    | ID operator     |
+
+### [BPJS Kesehatan Inquiries](http://47.88.53.4:1111/api/bpjsKesehatanInquiries/xxxxxxxxxxx)
+
+```http
+GET /bpjsKesehatanInquiries/{customer_number}
+```
+
+| Parameter       | Tipe Data | Keterangan      |
+|-----------------|-----------|-----------------|
+| customer_number | String    | Nomor pelanggan |
+
+## Deployment
+
+Untuk melakukan deploy ke server production pada project ini menggunakan
+library [waitress](https://docs.pylonsproject.org/projects/waitress/en/stable/)
+
+langkah-langkahnya sebagai berikut :
+
+1. Git clone repository ini
+
+```bash
+git clone https://github.com/sandrocods/API-Cek
+```
+
+2. Masuk ke folder API-Cek
+
+```bash
+cd API-Cek
+```
+
+3. Install requirements
+
+```bash
+pip3 install -r requirements.txt
+```
+
+4. install waitress
+
+```bash
+pip3 install waitress
+```
+
+5. Jalankan waitress dengan command berikut
+
+```bash
+waitress-serve --host 127.0.0.1 --port 5000 server:app
+```
+
+Jika berhasil maka akan muncul output seperti berikut di terminal
+
+```bash
+INFO:waitress:Serving on http://127.0.0.0:5000
+```
 
