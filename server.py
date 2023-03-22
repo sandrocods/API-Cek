@@ -22,6 +22,7 @@ app.register_blueprint(bpjsKesehatanInquiriess)
 
 @app.route('/', methods=['GET'])
 @app.route('/api', methods=['GET'])
+@app.route('/api/', methods=['GET'])
 def index():
     return {
         "status": True,
