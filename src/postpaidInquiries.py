@@ -3,7 +3,6 @@ import requests
 from src.ScraperAPI import ScraperAPI
 
 
-
 class postpaidInquiries(ScraperAPI):
 
     def __init__(self, customer_number):
