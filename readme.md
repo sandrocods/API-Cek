@@ -250,7 +250,7 @@ Contoh output jika gagal
 
 Berikut adalah refrensi rest api yang tersedia
 
-```http
+```text
 BASE_URL = http://47.88.53.4:1111/api/
 ```
 
