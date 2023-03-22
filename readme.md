@@ -43,19 +43,184 @@ print(
 
 # contoh output jika berhasil
 # {
-#     'status': True,
-#     'customer_number': 'xxxxxx',
-#     'customer_name': 'x xxxx xxxxxx',
-#     'segmentation': 'R1',
-#     'power': 2200
+#     "status": True,
+#     "customer_number": "xxxxxx",
+#     "customer_name": "x xxxx xxxxxx",
+#     "segmentation": "R1",
+#     "power": 2200
 # }
 
 # contoh output jika gagal
 # {
-#    'status': False,
-#    'customer_number': 'xxxxxx'
+#    "status": False,
+#    "customer_number": "xxxxxx"
 # }
 ```
 
+## Refrensi
 
+### Prepaid Inquiries
 
+Prepaid Inquiries adalah sebuah function yang digunakan untuk mengecek tagihan listrik prabayar
+
+| Parameter       | Tipe Data | Keterangan      |
+|-----------------|-----------|-----------------|
+| customer_number | String    | Nomor pelanggan |
+
+Contoh output jika berhasil
+
+```json
+{
+  "status": true,
+  "customer_number": "xxxxxx",
+  "customer_name": "x xxxx xxxxxx",
+  "segmentation": "R1",
+  "power": 2200
+}
+```
+
+Contoh output jika gagal
+
+```json
+{
+  "status": false,
+  "customer_number": "xxxxxx"
+}
+```
+
+### Postpaid Inquiries
+
+Postpaid Inquiries adalah sebuah function yang digunakan untuk mengecek tagihan listrik pascabayar
+
+| Parameter       | Tipe Data | Keterangan      |
+|-----------------|-----------|-----------------|
+| customer_number | String    | Nomor pelanggan |
+
+Contoh output jika berhasil
+
+```json
+{
+  "status": true,
+  "customer_number": "xxxxxx",
+  "customer_name": "xxxxx xxxxxx",
+  "segmentation": "R1",
+  "power": 450,
+  "period": [
+    "2023-03-01"
+  ],
+  "stand_meter": "00015338 - 00015445",
+  "amount": 52230
+}
+```
+
+Contoh output jika gagal
+
+```json
+{
+  "status": false,
+  "customer_number": "xxxxxx",
+  "message": "Nomor tidak terdaftar"
+}
+```
+
+### PDAM Inquiries
+
+PDAM Inquiries adalah sebuah function yang digunakan untuk mengecek tagihan PDAM
+
+| Parameter       | Tipe Data | Keterangan      |
+|-----------------|-----------|-----------------|
+| customer_number | String    | Nomor pelanggan |
+| operator_id     | String    | ID operator     |
+
+Contoh output jika berhasil
+
+```json
+{
+  "status": true,
+  "customer_number": "xxxxxx",
+  "customer_name": "xxxxx xxxxxx",
+  "bills": [
+    {
+      "usage": "0000013780",
+      "start_meter": 486000,
+      "end_meter": 499780,
+      "address": "-",
+      "admin_fee": 3000,
+      "penalty_fee": 5000,
+      "bill_period": "2023-02-01",
+      "amount": 73156,
+      "cubication": "486000-499780"
+    }
+  ]
+}
+```
+
+Contoh output jika gagal
+
+```json
+{
+  "status": false,
+  "customer_number": "xxxxxx",
+  "message": "Tagihan tidak ditemukan atau sudah dibayar"
+}
+```
+
+Mengambil ID operator
+
+Data telah di sort berdasarkan group
+
+```python
+from src.pdamInquiries import pdamInquiries
+
+print(
+    pdamInquiries("xxxx")._get_operators()
+)
+
+# Output
+# {
+#     "status": true,
+#     "data": [
+#         {
+#             "id": 471,
+#             "name": "PDAM  Kota Banda Aceh",
+#             "group": "Aceh"
+#         },
+#         {
+#             "id": 486,
+#             "name": "PDAM Kab. Aceh Barat",
+#             "group": "Aceh"
+#         },
+#         .. dan seterusnya
+#     ]
+# }
+```
+
+### BPJS Kesehatan Inquiries
+
+BPJS Kesehatan Inquiries adalah sebuah function yang digunakan untuk mengecek tagihan BPJS Kesehatan
+
+| Parameter       | Tipe Data | Keterangan      |
+|-----------------|-----------|-----------------|
+| customer_number | String    | Nomor pelanggan |
+
+Contoh output jika berhasil
+
+```json
+{
+  "status": true,
+  "customer_number": "xxxxxx",
+  "customer_name": "xxxxx xxxxxx",
+  "count_family_members": 4,
+  "amount": 142500
+}
+```
+
+Contoh output jika gagal
+
+```json
+{
+  "status": false,
+  "customer_number": "0000003137160351",
+  "message": "Tagihan tidak ditemukan atau sudah dibayar"
+}
+```
