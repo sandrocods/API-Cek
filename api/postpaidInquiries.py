@@ -9,7 +9,7 @@ def index():
     return {
         "status": False,
         "message": "Customer number cannot be empty",
-    }
+    }, 404
 
 
 @postpaidInquiriess.route('/api/postpaidInquiries/<customer_number>', methods=['GET'])
@@ -22,4 +22,4 @@ def get_data(customer_number):
         return {
             "status": False,
             "message": "Server error"
-        }
+        }, 500

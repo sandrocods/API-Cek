@@ -1,4 +1,4 @@
-from flask import Flask, blueprints
+from flask import blueprints
 from src.prepaidInquiries import prepaidInquiries
 
 prepaidInquiriess = blueprints.Blueprint('prepaidInquiriess', __name__)
@@ -9,7 +9,7 @@ def index():
     return {
         "status": False,
         "message": "Customer number cannot be empty"
-    }
+    }, 404
 
 
 @prepaidInquiriess.route('/api/prepaidInquiries/<customer_number>', methods=['GET'])
@@ -22,4 +22,4 @@ def get_data(customer_number):
         return {
             "status": False,
             "message": "Server error"
-        }
+        }, 500

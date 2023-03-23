@@ -247,12 +247,18 @@ Contoh output jika gagal
 ```
 
 ## Rest api
+Jika anda ingin melakukan request secara langsung, anda dapat menggunakan rest api yang telah disediakan dengan menggunakan Swagger API Documentation berikut
+```text
+http://47.88.53.4:1111/api/docs
+```
 
-Berikut adalah refrensi rest api yang tersedia
 
+Untuk menggunakan rest api, anda harus menggunakan `BASE_URL` berikut ini
 ```text
 BASE_URL = http://47.88.53.4:1111/api/
 ```
+
+Berikut adalah refrensi rest api yang tersedia pada aplikasi ini
 
 ### [Prepaid Inquiries](http://47.88.53.4:1111/api/prepaidInquiries/xxxxxxxxxxx)
 
@@ -337,4 +343,5 @@ Jika berhasil maka akan muncul output seperti berikut di terminal
 ```bash
 INFO:waitress:Serving on http://127.0.0.0:5000
 ```
+
 

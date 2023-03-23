@@ -9,7 +9,7 @@ def index():
     return {
         "status": False,
         "message": "Customer number cannot be empty",
-    }
+    }, 404
 
 
 @pdamInquiriess.route('/api/pdamInquiries/<customer_number>/', methods=['GET'])
@@ -22,7 +22,7 @@ def get_operators(customer_number):
         return {
             "status": False,
             "message": "Server error"
-        }
+        }, 500
 
 
 @pdamInquiriess.route('/api/pdamInquiries/<customer_number>/<operator_id>', methods=['GET'])
@@ -35,4 +35,4 @@ def get_data(customer_number, operator_id):
         return {
             "status": False,
             "message": "Server error"
-        }
+        }, 500

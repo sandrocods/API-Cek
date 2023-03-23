@@ -9,7 +9,7 @@ def index():
     return {
         "status": False,
         "message": "Customer number cannot be empty",
-    }
+    }, 404
 
 
 @bpjsKesehatanInquiriess.route('/api/bpjsKesehatanInquiries/<customer_number>', methods=['GET'])
@@ -23,4 +23,4 @@ def get_data(customer_number):
         return {
             "status": False,
             "message": "Server error"
-        }
+        }, 500

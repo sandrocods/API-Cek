@@ -1,11 +1,15 @@
 import datetime
 from flask import Flask
+from api.apiDocs import api_documentation
 from api.pdamInquiries import pdamInquiriess
 from api.prepaidInquiries import prepaidInquiriess
 from api.postpaidInquiries import postpaidInquiriess
 from api.bpjsInquiries import bpjsKesehatanInquiriess
 
 app = Flask(__name__)
+
+# Init API Docs
+api_documentation.init_app(app)
 
 # Route Pdam Inquiries
 app.register_blueprint(pdamInquiriess)
@@ -28,7 +32,7 @@ def index():
         "status": True,
         "message": "API Cek 📑🗓 is running",
         "datetime": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    }
+    }, 200
 
 
 @app.errorhandler(404)
@@ -36,9 +40,6 @@ def not_found(e):
     return {
         "status": False,
         "message": "API Path Not Found"
-    }
+    }, 404
 
 
-if __name__ == '__main__':
-    def create_app():
-        return app
