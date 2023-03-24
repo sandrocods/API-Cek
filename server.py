@@ -1,6 +1,6 @@
 import datetime
 from flask_cors import CORS
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from api.apiDocs import api_documentation
 from api.pdamInquiries import pdamInquiriess
 from api.prepaidInquiries import prepaidInquiriess
@@ -47,8 +47,14 @@ def apps():
 
 @app.errorhandler(404)
 def not_found(e):
-    return {
-        "status": False,
-        "message": "API Path Not Found"
-    }, 404
-
+    if request.path == '/':
+        return {
+            "status": True,
+            "message": "API Cek 📑🗓 is running",
+            "datetime": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        }, 200
+    else:
+        return {
+            "status": False,
+            "message": "API Path Not Found"
+        }, 404
