@@ -1,12 +1,16 @@
 import datetime
-from flask import Flask
+from flask_cors import CORS
+from flask import Flask, render_template
 from api.apiDocs import api_documentation
 from api.pdamInquiries import pdamInquiriess
 from api.prepaidInquiries import prepaidInquiriess
 from api.postpaidInquiries import postpaidInquiriess
 from api.bpjsInquiries import bpjsKesehatanInquiriess
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='views')
+
+# Init CORS
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 # Init API Docs
 api_documentation.init_app(app)
@@ -35,11 +39,16 @@ def index():
     }, 200
 
 
+@app.route('/apps', methods=['GET'])
+@app.route('/apps', methods=['GET'])
+def apps():
+    return render_template('index.html')
+
+
 @app.errorhandler(404)
 def not_found(e):
     return {
         "status": False,
         "message": "API Path Not Found"
     }, 404
-
 

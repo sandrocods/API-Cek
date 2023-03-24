@@ -26,7 +26,9 @@ Project ini dibuat untuk tujuan pengembangan dan pembelajaran
 
 ## Library
 
+- [Flask](https://pypi.org/project/Flask/)
 - [Requests](https://pypi.org/project/requests/)
+- [Flask-restx](https://pypi.org/project/flask-restx/)
 - [Beautifulsoup4](https://pypi.org/project/beautifulsoup4/)
 - [Requests-toolbelt](https://pypi.org/project/requests-toolbelt/)
 - [Fake_useragent](https://pypi.org/project/fake-useragent/)
@@ -40,6 +42,7 @@ Project ini dibuat untuk tujuan pengembangan dan pembelajaran
 | pdamInquiries ( Tagihan PDAM )          | ✅      |
 | bpjsKesehatanInquiries ( Tagihan BPJS ) | ✅      |
 | Rest API                                | ✅      |
+| Rest API Documentation                  | ✅      |
 | Web App                                 | WIP    |
 
 ## Cara Penggunaan
@@ -247,13 +250,14 @@ Contoh output jika gagal
 ```
 
 ## Rest api
-Jika anda ingin melakukan request secara langsung, anda dapat menggunakan rest api yang telah disediakan dengan menggunakan Swagger API Documentation berikut
-```text
-http://47.88.53.4:1111/api/docs
-```
 
+Jika anda ingin melakukan request secara langsung, anda dapat menggunakan rest api yang telah disediakan dengan
+menggunakan Swagger API Documentation berikut
+
+##### [Swagger API Documentation](http://47.88.53.4:1111/api/docs)
 
 Untuk menggunakan rest api, anda harus menggunakan `BASE_URL` berikut ini
+
 ```text
 BASE_URL = http://47.88.53.4:1111/api/
 ```
