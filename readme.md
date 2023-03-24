@@ -29,6 +29,7 @@ Project ini dibuat untuk tujuan pengembangan dan pembelajaran
 
 - [Flask](https://pypi.org/project/Flask/)
 - [Requests](https://pypi.org/project/requests/)
+- [Flask-cors](https://pypi.org/project/Flask-Cors/)
 - [Flask-restx](https://pypi.org/project/flask-restx/)
 - [Beautifulsoup4](https://pypi.org/project/beautifulsoup4/)
 - [Fake_useragent](https://pypi.org/project/fake-useragent/)
