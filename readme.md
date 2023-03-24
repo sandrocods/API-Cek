@@ -23,6 +23,7 @@ Project ini dibuat untuk tujuan pengembangan dan pembelajaran
 
 - [Rest API](#rest-api)
 - [Deployment](#deployment)
+- [Web App](#web-app)
 
 ## Library
 
@@ -30,8 +31,8 @@ Project ini dibuat untuk tujuan pengembangan dan pembelajaran
 - [Requests](https://pypi.org/project/requests/)
 - [Flask-restx](https://pypi.org/project/flask-restx/)
 - [Beautifulsoup4](https://pypi.org/project/beautifulsoup4/)
-- [Requests-toolbelt](https://pypi.org/project/requests-toolbelt/)
 - [Fake_useragent](https://pypi.org/project/fake-useragent/)
+- [Requests-toolbelt](https://pypi.org/project/requests-toolbelt/) 
 
 ## Fitur
 
@@ -43,7 +44,7 @@ Project ini dibuat untuk tujuan pengembangan dan pembelajaran
 | bpjsKesehatanInquiries ( Tagihan BPJS ) | ✅      |
 | Rest API                                | ✅      |
 | Rest API Documentation                  | ✅      |
-| Web App                                 | WIP    |
+| Web App                                 | ✅    |  
 
 ## Cara Penggunaan
 
@@ -348,4 +349,8 @@ Jika berhasil maka akan muncul output seperti berikut di terminal
 INFO:waitress:Serving on http://127.0.0.0:5000
 ```
 
+## Web App
+Untuk menggunakan web app yang telah didesain untuk mempermudah penggunaan API ini, anda dapat mengunjungi link berikut ini [Web App](http://47.88.53.4:1111/apps)
+
+![img.png](image/img.png)
 
