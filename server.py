@@ -40,7 +40,6 @@ def index():
 
 
 @app.route('/apps', methods=['GET'])
-@app.route('/apps', methods=['GET'])
 def apps():
     return render_template('index.html')
 

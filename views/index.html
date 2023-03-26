@@ -62,7 +62,14 @@
                 <div class="card-header">
                     <h3 class="card-title text-center">Detail Tagihan</h3>
                     <script>
-                        var d = new Date().toISOString().slice(0, 19).replace('T', ' ');
+                        var d = new Date().toLocaleString('id-ID', {
+                            year: 'numeric',
+                            month: 'numeric',
+                            day: 'numeric',
+                            hour: 'numeric',
+                            minute: 'numeric',
+                            second: 'numeric'
+                        }, {timeZone: 'Asia/Jakarta'});
                         document.write("<p class='text-center text-success'>Checked at : " + d + "</p>");
 
 
@@ -132,6 +139,17 @@
             e.preventDefault();
             var jenis = $('select[name=jenis]').val();
             var no_pelanggan = $('input[name=no_pelanggan]').val();
+
+            if (no_pelanggan == '') {
+                swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Nomor pelanggan tidak boleh kosong',
+                });
+                return false;
+            }
+
+
             var base_api = window.location.origin + '/api/';
 
             if (jenis == 'pdam') {
